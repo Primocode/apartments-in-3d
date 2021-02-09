@@ -101,6 +101,8 @@ const loadingModels = () => {
                 models.rotation.y = modelValues["rotation_y"];
                 models.rotation.z = modelValues["rotation_z"];
 
+                console.log(modelValues["floor"], modelValues["area"], modelValues["rooms"])
+
                 models.visible = modelValues["visible"]
                 scene.add(models);
             })
@@ -160,6 +162,7 @@ const functionAfterLoadingModels = () => {
     toDisplayTheMenu(); 
     activationOfTheFirstMenu(); 
     displayingTheFirstModel(); 
+    changeValueApartment();
 } 
 
 const generatingModelsInTheMenu = () => {
@@ -180,6 +183,9 @@ const generatingModelsInTheMenu = () => {
         imgInModelToChoseFromImg.dataset.folderName = data[value].folderName
         imgInModelToChoseFromImg.className = "selecting-the-model"
         // imgInModelToChoseFromImg.src = `models/${data[value].folderName}/${data[value].imgName}.png`
+        imgInModelToChoseFromImg.dataset.area = data[value].area
+        imgInModelToChoseFromImg.dataset.floor = data[value].floor
+        imgInModelToChoseFromImg.dataset.rooms = data[value].rooms
         modelToChoseFromImg.appendChild(imgInModelToChoseFromImg)
     
         const h3inModelToChoseFromImg = document.createElement('h3');
@@ -204,6 +210,8 @@ const displayingModelsFromTheMenu = (e) => {
     })
     e.target.classList.add("selecting-the-model-active")
     displayingSelectedModels(e.target.dataset.folderName);
+
+    changeValueApartment(e.target.dataset.floor, e.target.dataset.rooms, e.target.dataset.area)
 }
 
 const toDisplayTheMenu = () => {
@@ -334,6 +342,22 @@ const displayingTheFirstModel = () => {
     if (document.querySelectorAll('.selecting-the-model')[0]) {
         const firstModelInCategory = document.querySelectorAll('.selecting-the-model')[0].dataset.folderName 
         scene.getObjectByName(firstModelInCategory).visible = true;
+
         document.querySelectorAll('.selecting-the-model')[0].classList.add("selecting-the-model-active")
     }
 }
+
+const changeValueApartment = (floor, area, rooms) => {
+    const floorInfo = document.querySelector('#floor');
+    const areaInfo = document.querySelector('#result-area-id');
+    const roomsInfo = document.querySelector('#number-of-rooms');
+
+    // console.log(document.querySelectorAll('.selecting-the-model')[0].dataset.area )
+
+    floorInfo.textContent = floor;
+    areaInfo.textContent = area;
+    roomsInfo.textContent = rooms;
+
+
+}
+

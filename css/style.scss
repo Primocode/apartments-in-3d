@@ -273,7 +273,7 @@ canvas {
 
 .right-menu {
     height: 100%;
-    width: 200px;
+    width: 300px;
     background-color: #ededed;
     border-left: 1px solid #e4e4e4;
     position: fixed;
@@ -288,6 +288,22 @@ canvas {
             cursor: pointer;
             background-color: #ededed;
             padding: 5px 10px 5px 10px;
+        }
+    }
+    .right-menu-content {
+        margin: 15px;
+        .right-menu-container {
+            h3 {
+                border-bottom: 1px solid #d2d2d2;
+                padding-bottom: 5px;
+            }
+            .right-menu-table {
+                margin: 10px 0px;
+                .right-menu-span  {
+                    color: black;
+                    font-weight: 600;
+                }
+            }
         }
     }
     .right-menu-top {
