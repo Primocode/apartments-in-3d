@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentacja modeli 3D</title>
+
+    <script src="https://kit.fontawesome.com/f99c5d740e.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="loading-screen-container">
+            <h2>Ł A D O W A N I E </h2>
+            <div class="loader">
+                <div class="inner one"></div>
+                <div class="inner two"></div>
+                <div class="inner three"></div>
+            </div>   
+            <p class="result-loading">
+                Ładowanie dodatków
+            </p>
+        </div>
+    </div>
+    <header class="right-menu" id="menu-right">
+        <div class="right-menu-close-open">
+            <span class="fas fa-cog"></span>
+        </div>
+        <div class="right-menu-top">
+            <h3>Funkcję wyświetlania mieszkań 3D</h3>
+            <p>Przy pomocy dodatkowych funkcji możesz zarządzać wyświetlaniem mieszkań 3D</p>
+        </div>
+        <div class="right-menu-bottom">
+            <div class="functions-container">
+                <button class="auto-rotation functions-style">Auto obracanie</button>
+                <button class="full-screen functions-style">Pełny ekran</button>
+            </div>
+        </div>
+    </header>
+    <header class="main-menu-left-open" id="menu-left">
+        <div class="btn-for-switching-menu-on-off">
+            <span class="fas fa-times" id="menu-left-icon"></span>
+        </div>
+        <div class="main-menu-left-top">
+            <h1>Widoki mieszkań</h1>
+            <p>Przy pomocy narzędzia możesz obejrzeć interesujące Cię mieszkania w 3D</p>
+        </div>
+        <div class="main-menu-left-container">
+            <button class="selecting-models main-menu-left-btn main-left-menu-choice-category" data-category="models-to-choose-from-container">Wybierz mieszkanie</button>
+            <button class="selecting-backgrounds main-left-menu-choice-category main-menu-left-btn" data-category="backgrounds-of-your-choice-from-container">Wybierz tło</button>
+            <div class="models-to-choose-from-container selecting-a-category-in-the-menu" >
+            </div>
+            <div class="backgrounds-of-your-choice-from-container selecting-a-category-in-the-menu">
+            </div>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <script src="js/app.js" type="module"></script>
+    <script src="js/Menu-operation.js"></script>
+</body>
+</html>
