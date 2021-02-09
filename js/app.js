@@ -161,8 +161,8 @@ const functionAfterLoadingModels = () => {
     generatingABackgroundInTheMenu();
     toDisplayTheMenu(); 
     activationOfTheFirstMenu(); 
-    displayingTheFirstModel(); 
     changeValueApartment();
+    displayingTheFirstModel(); 
 } 
 
 const generatingModelsInTheMenu = () => {
@@ -182,7 +182,7 @@ const generatingModelsInTheMenu = () => {
         const imgInModelToChoseFromImg = document.createElement('img');
         imgInModelToChoseFromImg.dataset.folderName = data[value].folderName
         imgInModelToChoseFromImg.className = "selecting-the-model"
-        // imgInModelToChoseFromImg.src = `models/${data[value].folderName}/${data[value].imgName}.png`
+        imgInModelToChoseFromImg.src = `models/${data[value].folderName}/${data[value].imgName}.png`
         imgInModelToChoseFromImg.dataset.area = data[value].area
         imgInModelToChoseFromImg.dataset.floor = data[value].floor
         imgInModelToChoseFromImg.dataset.rooms = data[value].rooms
@@ -211,7 +211,7 @@ const displayingModelsFromTheMenu = (e) => {
     e.target.classList.add("selecting-the-model-active")
     displayingSelectedModels(e.target.dataset.folderName);
 
-    changeValueApartment(e.target.dataset.floor, e.target.dataset.rooms, e.target.dataset.area)
+    changeValueApartment(e.target.dataset.floor, e.target.dataset.area, e.target.dataset.rooms)
 }
 
 const toDisplayTheMenu = () => {
@@ -344,7 +344,15 @@ const displayingTheFirstModel = () => {
         scene.getObjectByName(firstModelInCategory).visible = true;
 
         document.querySelectorAll('.selecting-the-model')[0].classList.add("selecting-the-model-active")
+
+        const floor = document.querySelectorAll('.selecting-the-model')[0].dataset.floor
+        const area = document.querySelectorAll('.selecting-the-model')[0].dataset.area
+        const rooms = document.querySelectorAll('.selecting-the-model')[0].dataset.rooms
+
+        changeValueApartment(floor, area, rooms)
     }
+
+
 }
 
 const changeValueApartment = (floor, area, rooms) => {
@@ -353,7 +361,7 @@ const changeValueApartment = (floor, area, rooms) => {
     const roomsInfo = document.querySelector('#number-of-rooms');
 
     // console.log(document.querySelectorAll('.selecting-the-model')[0].dataset.area )
-
+    console.log("test")
     floorInfo.textContent = floor;
     areaInfo.textContent = area;
     roomsInfo.textContent = rooms;
